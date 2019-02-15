@@ -2,6 +2,8 @@ package com.pitool;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class ComponentIO implements Serializable{
 
 	/**
@@ -19,7 +21,7 @@ public class ComponentIO implements Serializable{
 	}
 	
 	public ComponentIO() {}
-
+    
 	public String getName() {
 		return name;
 	}
@@ -28,6 +30,7 @@ public class ComponentIO implements Serializable{
 		this.name = name;
 	}
 
+	@XmlElement(name = "description")
 	public String getDetails() {
 		return details;
 	}

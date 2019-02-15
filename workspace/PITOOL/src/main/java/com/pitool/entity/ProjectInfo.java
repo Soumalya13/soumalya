@@ -1,18 +1,19 @@
 package com.pitool.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Access;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
 
 @Entity
 @Access(javax.persistence.AccessType.FIELD)
-@Table(name="Project")
+@Table(name="PROJECT")
 public class ProjectInfo implements Serializable {
 
 	/**
@@ -21,6 +22,9 @@ public class ProjectInfo implements Serializable {
 	private static final long serialVersionUID = -7882104743796066740L;
 
 	@Id
+	@Column(name="Project_id")
+	private  Integer projectID;
+	
 	@Column(name="Name")
 	private String name  ;
 	
@@ -38,6 +42,9 @@ public class ProjectInfo implements Serializable {
 
 	@Column(name="SD")
 	private String sd;
+
+	@OneToMany(cascade= CascadeType.ALL , mappedBy = "projectInfo")
+	private List<Component> components;
 	
 	
 	public ProjectInfo(String name, String details, String manager, String sa, String si, String sd) {
@@ -51,6 +58,18 @@ public class ProjectInfo implements Serializable {
 	}
 	
 	public ProjectInfo() {}
+	
+	public List<Component> getComponents() {
+		return components;
+	}
+	
+	public Integer getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(Integer projectID) {
+		this.projectID = projectID;
+	}
 
 	public String getName() {
 		return name;

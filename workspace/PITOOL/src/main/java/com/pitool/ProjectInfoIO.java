@@ -1,8 +1,11 @@
 package com.pitool;
 
+
 import java.io.Serializable;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 
 public class ProjectInfoIO implements Serializable{
 
@@ -16,6 +19,7 @@ public class ProjectInfoIO implements Serializable{
 	private String sa;
 	private String si;
 	private String sd;
+	private List<ComponentIO> components;
 	
 	public ProjectInfoIO(String name, String details, String manager, String sa, String si, String sd) {
 		super();
@@ -28,6 +32,16 @@ public class ProjectInfoIO implements Serializable{
 	}
 	
 	public ProjectInfoIO() {}
+	
+	@XmlElementWrapper
+	@XmlElement(name = "component")
+	public List<ComponentIO> getComponents() {
+		return components;
+	}
+
+	public void setComponents(List<ComponentIO> components) {
+		this.components = components;
+	}
 
 	public String getName() {
 		return name;

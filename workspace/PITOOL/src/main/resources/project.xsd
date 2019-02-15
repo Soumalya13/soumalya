@@ -25,6 +25,21 @@
 				minOccurs="0" />
 			<xsd:element name="SA" type="xsd:string" minOccurs="0" />
 			<xsd:element name="SD" type="xsd:string" minOccurs="0" />
+			
+			<xsd:element name="components">
+			<xsd:complexType>
+		      <xsd:sequence>
+		        <xsd:element name="component" maxOccurs="unbounded" type="tns:componentInfoType"/>
+		      </xsd:sequence>
+		    </xsd:complexType>
+  		</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="componentInfoType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
 		</xsd:sequence>
 	</xsd:complexType>
 	

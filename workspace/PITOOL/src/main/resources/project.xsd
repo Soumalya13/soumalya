@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://com.pitool.projectInfo" xmlns:tns="http://com.pitool.projectInfo"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xsd:element name="CreateProjectRequest" type="tns:projectInfo" />
+	<xsd:element name="CreateProjectResponse" type="tns:projectInfoResponse" />
+	
+	<xsd:complexType name="projectInfo">
+		<xsd:sequence>
+			<xsd:element name="projectInfo" type="tns:projectInfoType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="projectInfoResponse">
+		<xsd:sequence>
+			<xsd:element name="projectInfo" type="tns:projectInfoType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="projectInfoType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="managerName" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="SA" type="xsd:string" minOccurs="0" />
+			<xsd:element name="SD" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xs:schema> 
+ 

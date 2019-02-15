@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Entity
 @Access(javax.persistence.AccessType.FIELD)
 @Table(name="Project")
-@Component
 public class ProjectInfo implements Serializable {
 
 	/**
@@ -39,6 +38,19 @@ public class ProjectInfo implements Serializable {
 
 	@Column(name="SD")
 	private String sd;
+	
+	
+	public ProjectInfo(String name, String details, String manager, String sa, String si, String sd) {
+		super();
+		this.name = name;
+		this.details = details;
+		this.manager = manager;
+		this.sa = sa;
+		this.si = si;
+		this.sd = sd;
+	}
+	
+	public ProjectInfo() {}
 
 	public String getName() {
 		return name;
